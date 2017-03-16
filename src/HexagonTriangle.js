@@ -13,8 +13,9 @@ class HexagonTriangle extends Component {
     const rotation = positionRotateAngle + (120 * this.props.turns);
     const rotate = `rotate(${rotation} ${xCenterOfMass} ${yCenterOfMass })`;
 
+    const yPlacement = this.props.row === 0 ? yCenterOfMass : -yCenterOfMass;
     const xTranslation = (this.props.index - 1) * this.props.triangeBase/2;
-    const yTranslation = this.props.index % 2 === 0 ? 0 : yCenterOfMass;
+    const yTranslation = this.props.index % 2 === 0 ? 0 : yPlacement;
     const translate = `translate(${xTranslation} ${yTranslation})`;
     const transform = `${translate} ${rotate}`;
 

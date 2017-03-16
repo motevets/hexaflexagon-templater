@@ -4,7 +4,6 @@ import HexagonTriangle from './HexagonTriangle';
 import HexaflexagonGeometry from './util/HexaflexagonGeometry';
 
 const glueId = 'glue';
-const blankId = 'blank';
 const hexagonIds = ['hf0', 'hf1', 'hf2'];
 
 class Hexaflexagon extends Component {
@@ -37,37 +36,8 @@ class Hexaflexagon extends Component {
             width={this.geometry.hexagonWidth}
             height={this.geometry.hexagonLength}
             href='glue.svg' />
-          <image id={blankId}
-            key={blankId}
-            width={this.geometry.hexagonWidth}
-            height={this.geometry.hexagonLength}
-            href='blank.svg' />
         </def>
-        <TriangleGridRow index={1/3} triangleBase={this.triangleBase}>
-          <HexagonTriangle hexagonId={hexagonIds[2]} triangle={4} turns={1.5}/>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-          <HexagonTriangle hexagonId={hexagonIds[1]} triangle={3} turns={0.5}/>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-          <HexagonTriangle hexagonId={hexagonIds[0]} triangle={2} turns={1.5}/>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-          <HexagonTriangle hexagonId={hexagonIds[2]} triangle={0} turns={1.5}/>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-          <HexagonTriangle hexagonId={hexagonIds[1]} triangle={1} turns={0.5}/>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-        </TriangleGridRow>
-        <TriangleGridRow index={-1/3} triangleBase={this.triangleBase}>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-          <HexagonTriangle hexagonId={hexagonIds[1]} triangle={2} turns={2.5}/>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-          <HexagonTriangle hexagonId={hexagonIds[0]} triangle={3} turns={1.5}/>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-          <HexagonTriangle hexagonId={hexagonIds[2]} triangle={1} turns={1.5}/>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-          <HexagonTriangle hexagonId={hexagonIds[1]} triangle={0} turns={2.5}/>
-          <HexagonTriangle hexagonId={blankId} triangle={0} turns={0}/>
-          <HexagonTriangle hexagonId={hexagonIds[0]} triangle={5} turns={1.5}/>
-        </TriangleGridRow>
-        <TriangleGridRow index={1} triangleBase={this.triangleBase}>
+        <TriangleGridRow index={0} triangleBase={this.triangleBase}>
           <HexagonTriangle hexagonId={glueId} triangle={0} turns={0}/>
           <HexagonTriangle hexagonId={hexagonIds[0]} triangle={4} turns={1}/>
           <HexagonTriangle hexagonId={hexagonIds[2]} triangle={3} turns={2}/>
@@ -78,6 +48,18 @@ class Hexaflexagon extends Component {
           <HexagonTriangle hexagonId={hexagonIds[0]} triangle={0} turns={1}/>
           <HexagonTriangle hexagonId={hexagonIds[2]} triangle={5} turns={2}/>
           <HexagonTriangle hexagonId={glueId} triangle={0} turns={0}/>
+        </TriangleGridRow>
+        <TriangleGridRow index={4/3} triangleBase={this.triangleBase}>
+          <HexagonTriangle hexagonId={hexagonIds[2]} triangle={4} turns={1.5}/>
+          <HexagonTriangle hexagonId={hexagonIds[1]} triangle={2} turns={2.5}/>
+          <HexagonTriangle hexagonId={hexagonIds[1]} triangle={3} turns={0.5}/>
+          <HexagonTriangle hexagonId={hexagonIds[0]} triangle={3} turns={1.5}/>
+          <HexagonTriangle hexagonId={hexagonIds[0]} triangle={2} turns={1.5}/>
+          <HexagonTriangle hexagonId={hexagonIds[2]} triangle={1} turns={1.5}/>
+          <HexagonTriangle hexagonId={hexagonIds[2]} triangle={0} turns={1.5}/>
+          <HexagonTriangle hexagonId={hexagonIds[1]} triangle={0} turns={2.5}/>
+          <HexagonTriangle hexagonId={hexagonIds[1]} triangle={1} turns={0.5}/>
+          <HexagonTriangle hexagonId={hexagonIds[0]} triangle={5} turns={1.5}/>
         </TriangleGridRow>
       </svg>
     )
