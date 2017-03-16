@@ -9,7 +9,7 @@ class HexagonTriangle extends Component {
     const xCenterOfMass = 1000;
     const yCenterOfMass = geo.triangleBase/(2*Math.sqrt(3));
 
-    const positionRotateAngle = this.props.index % 2 == 1 ? 60 : 0;
+    const positionRotateAngle = this.props.index % 2 === 1 ? 60 : 0;
     const rotation = positionRotateAngle + (120 * this.props.turns);
     const rotate = `rotate(${rotation} ${xCenterOfMass} ${yCenterOfMass })`;
 
