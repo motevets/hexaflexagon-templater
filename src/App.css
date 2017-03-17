@@ -1,6 +1,18 @@
-.App-header {
+.App-header, .App-footer {
   background-color: #222;
   padding: 20px;
+  color: white;
+}
+
+.App-footer {
+  padding: 10px 20px;
+}
+
+p {
+  margin: 0;
+}
+
+.App-footer a {
   color: white;
 }
 

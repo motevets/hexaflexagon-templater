@@ -23,15 +23,19 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Hexaflexagon Templater</h2>
+          <h2>HexaFlexaGo</h2>
+          <p>The friendly hexaflexagon template generator</p>
         </div>
         <div className="App-body">
           <div id="fileUploader">
-            <label htmlFor="fileUploaderField">Select up to three images at once to generate a hexaflexagon template.</label>
+            <label htmlFor="fileUploaderField">Select up to <strong>three</strong> images at once</label>
             <input id="fileUploaderField" type="file" multiple="true" onChange={this.onFilesChange} />
           </div>
           <hr/>
           <Hexaflexagon images={this.state.fileUrls}/>
+        </div>
+        <div className="App-footer">
+          <p>Made with love by <a href="http://katieconforti.com">Katie Conforti</a> and <a href="http://motevets.com">Tom Dunlap</a></p>
         </div>
       </div>
     );
