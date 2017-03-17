@@ -9,9 +9,6 @@ class App extends Component {
   }
 
   onFilesChange = (e) => {
-    console.log(e)
-    console.log(e.target)
-    console.log(e.target.files)
     const newFiles = e.target.files;
     const newFileUrls = [];
     for(let i = 0; i < newFiles.length; i++) {
@@ -26,10 +23,14 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Hexaflexagon</h2>
+          <h2>Hexaflexagon Templater</h2>
         </div>
         <div className="App-body">
-          <input type="file" multiple="true" onChange={this.onFilesChange} />
+          <div id="fileUploader">
+            <label htmlFor="fileUploaderField">Select up to three images at once to generate a hexaflexagon template.</label>
+            <input id="fileUploaderField" type="file" multiple="true" onChange={this.onFilesChange} />
+          </div>
+          <hr/>
           <Hexaflexagon images={this.state.fileUrls}/>
         </div>
       </div>

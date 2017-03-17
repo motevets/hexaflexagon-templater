@@ -11,3 +11,8 @@
 .App-intro {
   font-size: large;
 }
+
+#fileUploader label, #fileUploader input{
+  display: block;
+  width: 100%;
+}

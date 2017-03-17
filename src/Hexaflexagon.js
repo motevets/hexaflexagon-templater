@@ -9,7 +9,7 @@ const hexagonIds = ['hf0', 'hf1', 'hf2'];
 class Hexaflexagon extends Component {
   triangleBase = 1000;
   geometry = new HexaflexagonGeometry(this.triangleBase);
-  viewBox = `0 0 ${this.geometry.hexagonWidth*4} ${this.geometry.hexagonLength}`;
+  viewBox = `0 0 ${this.geometry.triangleBase * 5.5} ${this.geometry.hexagonLength}`;
 
   imageUrl(i){
     if(this.props.images[i] === undefined) {
