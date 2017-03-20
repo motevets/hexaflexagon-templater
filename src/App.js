@@ -47,12 +47,12 @@ class App extends Component {
                 <div className="cross" onClick={this.removeImage.bind(this, i)}>×</div>
               </div>
             )}
+            <hr/>
           </div>
-          <hr/>
           <Hexaflexagon images={this.state.fileUrls}/>
         </div>
         <div className="App-footer">
-          <p>Made with love by <a href="http://katieconforti.com">Katie Conforti</a> and <a href="http://motevets.com">Tom Dunlap</a></p>
+          <p>HexaFlexaGo is made with love by <a href="http://katieconforti.com">Katie Conforti</a> and <a href="http://motevets.com">Tom Dunlap</a></p>
         </div>
       </div>
     );
