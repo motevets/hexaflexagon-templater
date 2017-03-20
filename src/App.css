@@ -36,3 +36,22 @@ p {
   display: block;
   width: 100%;
 }
+
+.hexagonPreview {
+  height: 100px;
+  width:  115px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 2px solid #999;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.hexagonPreview .cross {
+  cursor: pointer;
+  float: right;
+  margin-right: 4px;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}

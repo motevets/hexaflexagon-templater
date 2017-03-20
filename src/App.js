@@ -15,7 +15,15 @@ class App extends Component {
       newFileUrls.push(window.URL.createObjectURL(newFiles[i]));
     }
     this.setState({
-      fileUrls: newFileUrls
+      fileUrls: this.state.fileUrls.concat(newFileUrls)
+    });
+  }
+
+  removeImage = (index) => {
+    const fileUrlsCopy = this.state.fileUrls.slice();
+    fileUrlsCopy.splice(index, 1);
+    this.setState({
+      fileUrls: fileUrlsCopy
     });
   }
 
@@ -30,6 +38,15 @@ class App extends Component {
           <div id="fileUploader">
             <label htmlFor="fileUploaderField">Select up to <strong>three</strong> images at once</label>
             <input id="fileUploaderField" type="file" multiple="true" onChange={this.onFilesChange} />
+            { this.state.fileUrls.map((fileUrl, i) =>
+              <div
+                key={i}
+                className="hexagonPreview"
+                style={{backgroundImage: `url(${fileUrl})`}}
+              >
+                <div className="cross" onClick={this.removeImage.bind(this, i)}>×</div>
+              </div>
+            )}
           </div>
           <hr/>
           <Hexaflexagon images={this.state.fileUrls}/>
