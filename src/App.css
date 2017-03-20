@@ -6,6 +6,10 @@
 
 .App-footer {
   padding: 10px 20px;
+  position: relative;
+  bottom:0;
+  left:0;
+  right:0;
 }
 
 p {
@@ -17,7 +21,11 @@ p {
 }
 
 .App-body {
-  padding: 20px;
+  padding: 145px 20px 60px;
+  margin:-125px 0 -38px;
+  position:relative;
+  min-height:100vh;
+  box-sizing:border-box;
 }
 
 .App-intro {
