@@ -6,4 +6,6 @@ export default class HexaflexagonGeometry {
   get hexagonLength() { return 2 * this.triangleHeight }
   get hexagonHeight() { return this.hexagonLength }
   get hexagonWidth() { return 2 * this.triangleBase }
+  get xCenterOfTriangleMass() { return this.triangleBase/2};
+  get yCenterOfTriangleMass() { return this.triangleBase/(2*Math.sqrt(3))};
 }

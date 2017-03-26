@@ -7,9 +7,7 @@ class TriangleGridRow extends Component {
   render() {
     const geo = new HexaflexagonGeometry(this.props.triangleBase);
     const translate = `translate(0 ${this.props.index * geo.triangleHeight})`;
-    const flip = this.props.flip ? -1 : 1;
-    const scale = `scale(1 ${flip})`;
-    const transform = `${translate} ${scale}`;
+    const transform = `${translate}`;
     return(
       <g transform={transform}>
         <defs>
@@ -27,7 +25,7 @@ class TriangleGridRow extends Component {
             index: i,
             row: this.props.index,
             clipPathId: clipPathId,
-            triangeBase: this.props.triangleBase
+            triangleBase: this.props.triangleBase
           })
         )}
       </g>

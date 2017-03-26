@@ -3,36 +3,39 @@ import HexaflexagonGeometry from './util/HexaflexagonGeometry';
 
 class HexagonTriangle extends Component {
   render() {
-    const hexagonId = 'hexagon' + this.props.index + this.props.row;
+    const triangleId = 'hexagon' + this.props.index + this.props.row;
 
-    const geo = new HexaflexagonGeometry(this.props.triangeBase);
-    const xCenterOfMass = 1000;
-    const yCenterOfMass = geo.triangleBase/(2*Math.sqrt(3));
+    const geo = new HexaflexagonGeometry(this.props.triangleBase);
 
-    const positionRotateAngle = this.props.index % 2 === 1 ? 60 : 0;
-    const rotation = positionRotateAngle + (120 * this.props.turns);
-    const rotate = `rotate(${rotation} ${xCenterOfMass} ${yCenterOfMass })`;
-
-    const yPlacement = this.props.row === 0 ? yCenterOfMass : -yCenterOfMass;
-    const xTranslation = (this.props.index - 1) * this.props.triangeBase/2;
-    const yTranslation = this.props.index % 2 === 0 ? 0 : yPlacement;
-    const translate = `translate(${xTranslation} ${yTranslation})`;
-    const transform = `${translate} ${rotate}`;
-
+    const positionHalfTurn = (this.props.row + this.props.index) % 2 === 1 ? 1 : 0;
+    const halfTurns = this.props.turns * 2 + positionHalfTurn;
 
     return(
       <g>
         <defs>
           <use
-            id={hexagonId}
+            id={`face_oriented_${triangleId}`}
             xlinkHref={'#'+this.props.hexagonId}
             transform={`rotate(${-60*this.props.triangle} ${geo.hexagonWidth/2} ${geo.hexagonHeight/2})`}
           />
+          <use
+            id={`triangle_cut_${triangleId}`}
+            xlinkHref={`#face_oriented_${triangleId}`}
+            clipPath={`url(#${this.props.clipPathId})`}
+            transform={`translate(${-geo.triangleBase/2} 0)`}
+          />
+          <use
+            id={`triangle_oriented_${triangleId}`}
+            xlinkHref={`#triangle_cut_${triangleId}`}
+            transform={[
+              `translate(0 ${halfTurns % 2 === 1 ? geo.yCenterOfTriangleMass : 0})`,
+              `rotate(${60*halfTurns} ${geo.xCenterOfTriangleMass} ${geo.yCenterOfTriangleMass})`,
+            ]}
+          />
         </defs>
         <use
-          xlinkHref={'#'+hexagonId}
-          clipPath={`url(#${this.props.clipPathId})`}
-          transform={transform}
+          xlinkHref={`#triangle_oriented_${triangleId}`}
+          transform={`translate(${geo.triangleBase/2 * this.props.index} 0)`}
         />
       </g>
     );
